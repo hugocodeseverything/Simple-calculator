@@ -1,0 +1,229 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --bg: #181b20;
+  --panel: #23272f;
+  --button: #292e36;
+  --button-hover: #363b45;
+  --accent: #60a5fa;
+  --text: #e8eaed;
+  --secondary: #a0aec0;
+  --radius: 1.25rem;
+  --shadow: 0 4px 24px 0 rgba(0,0,0,0.25);
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+}
+
+.project-title {
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-top: 2.2rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 1px;
+  color: var(--text);
+}
+
+.project-title .highlight {
+  color: var(--accent);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.1rem;
+  margin-top: 1.5vh;
+  flex-wrap: wrap;
+}
+
+.calculator {
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.15rem 1rem 1.1rem 1rem;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.02rem;
+  position: relative;
+}
+
+.display {
+  background: var(--button);
+  border-radius: var(--radius);
+  color: var(--text);
+  min-height: 46px;
+  padding: 0.75rem 0.8rem 0.7rem 0.8rem;
+  font-size: 1.57rem;
+  font-weight: 600;
+  text-align: right;
+  letter-spacing: 1px;
+  word-break: break-all;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.3s;
+}
+
+.mode-toggle {
+  text-align: right;
+}
+
+.mode-toggle button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.31rem 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.67rem;
+}
+
+.buttons.scientific {
+  margin-top: 0.4rem;
+}
+
+button {
+  background: var(--button);
+  color: var(--text);
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  padding: 0.7rem 0.1rem;
+  border-radius: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, color 0.15s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  user-select: none;
+}
+button:active,
+button:hover {
+  background: var(--button-hover);
+}
+.button-accent {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.button-accent:active,
+.button-accent:hover {
+  background: #2563eb;
+  color: #fff;
+}
+.button-secondary {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.history-panel {
+  background: var(--panel);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 220px;
+  padding: 0.6rem 0.9rem 1.1rem 0.9rem;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+  max-height: 430px;
+  overflow: auto;
+}
+
+.history-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.empty-history-btn {
+  background: #f87171;
+  color: #fff;
+  border: none;
+  font-size: 0.89rem;
+  padding: 0.18rem 0.75rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 0.4rem;
+  transition: background 0.16s;
+}
+.empty-history-btn:hover {
+  background: #dc2626;
+}
+
+#historyList {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+#historyList li {
+  padding: 0.22rem 0.17rem;
+  margin-bottom: 0.12rem;
+  border-radius: 0.5rem;
+  background: var(--button);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.18s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#historyList li:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.copyright {
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.91rem;
+  color: var(--secondary);
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.18rem;
+}
+.copyright-logo {
+  width: 22px;
+  height: 22px;
+  display: block;
+  margin-bottom: 0.1rem;
+  filter: grayscale(1) brightness(1.4);
+}
+
+@media (max-width: 900px) {
+  .container { flex-direction: column; align-items: center; gap: 1rem;}
+  .history-panel { width: 95vw; min-height: 0; margin-top: 0;}
+}
+@media (max-width: 450px) {
+  .calculator { padding: 0.7rem; width: 97vw;}
+  .display { font-size: 1.07rem; }
+  button { padding: 0.6rem 0.01rem; font-size: 0.94rem; }
+  .history-panel { padding: 0.6rem 0.3rem 1rem 0.3rem; font-size: 0.92rem;}
+  .project-title { font-size: 1.28rem; margin-top: 1.25rem; }
+  .copyright-logo { width: 17px; height: 17px;}
+}

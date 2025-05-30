@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="project-title">
+    hugocodes <span class="highlight">everything</span> project
+  </div>
+  <div class="container">
+    <div class="calculator">
+      <div class="display" id="display">0</div>
+      <div class="mode-toggle">
+        <button id="modeBtn" onclick="toggleMode()">Scientific</button>
+      </div>
+      <div class="buttons" id="basicButtons">
+        <button onclick="input('(')">(</button>
+        <button onclick="input(')')">)</button>
+        <button onclick="input('%')">%</button>
+        <button class="button-accent" onclick="input('/')">÷</button>
+
+        <button onclick="input('7')">7</button>
+        <button onclick="input('8')">8</button>
+        <button onclick="input('9')">9</button>
+        <button class="button-accent" onclick="input('*')">×</button>
+
+        <button onclick="input('4')">4</button>
+        <button onclick="input('5')">5</button>
+        <button onclick="input('6')">6</button>
+        <button class="button-accent" onclick="input('-')">−</button>
+
+        <button onclick="input('1')">1</button>
+        <button onclick="input('2')">2</button>
+        <button onclick="input('3')">3</button>
+        <button class="button-accent" onclick="input('+')">+</button>
+
+        <button onclick="input('00')">00</button>
+        <button onclick="input('0')">0</button>
+        <button onclick="input('.')">.</button>
+        <button class="button-accent" onclick="calculate()">=</button>
+
+        <button class="button-secondary" onclick="clearDisplay()">AC</button>
+        <button class="button-secondary" onclick="backspace()">⌫</button>
+      </div>
+      <div class="buttons scientific" id="scientificButtons" style="display:none;">
+        <button onclick="scientific('sqrt')">√</button>
+        <button onclick="scientific('square')">x²</button>
+        <button onclick="scientific('sin')">sin</button>
+        <button onclick="scientific('cos')">cos</button>
+        <button onclick="scientific('tan')">tan</button>
+        <button onclick="scientific('log')">log</button>
+        <button onclick="scientific('ln')">ln</button>
+        <button onclick="input('π')">π</button>
+        <button onclick="input('e')">e</button>
+      </div>
+      <div class="copyright">
+        Hugo Sachio Wijaya 2025
+      </div>
+    </div>
+    <div class="history-panel" id="historyPanel">
+      <div class="history-title">
+        History
+        <button class="empty-history-btn" onclick="emptyHistory()">Empty</button>
+      </div>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>
