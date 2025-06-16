@@ -6,13 +6,12 @@ let history = [];
 const maxHistory = 20;
 let scientificMode = false;
 
-// Scientific constants
+
 const constants = {
   "π": Math.PI,
   "e": Math.E
 };
 
-// History functions
 function addToHistory(expr, result) {
   if (expr.trim() === "") return;
   history.unshift({ expr, result });
@@ -36,8 +35,6 @@ function renderHistory() {
     list.appendChild(li);
   }
 }
-
-// Input function
 function input(val) {
   if (evaluated && "0123456789.(πe".includes(val)) {
     current = '';
@@ -53,7 +50,6 @@ function input(val) {
   updateDisplay();
 }
 
-// Scientific buttons logic
 function scientific(func) {
   let lastNum = getLastNumber(current);
   let replacement;
@@ -80,7 +76,6 @@ function degToRad(x) {
   return x * Math.PI / 180;
 }
 
-// Display & control
 function updateDisplay() {
   display.textContent = current.length > 0 ? current : '0';
 }
@@ -101,13 +96,11 @@ function backspace() {
 function calculate() {
   let expr = current;
   try {
-    // Replace special tokens
     let parsed = expr.replace(/÷/g, '/')
       .replace(/×/g, '*')
       .replace(/π/g, '(' + constants["π"] + ')')
       .replace(/e/g, '(' + constants["e"] + ')')
       .replace(/%/g, '/100');
-    // Safe math with Function, not eval
     let result = Function('"use strict";return (' + parsed + ')')();
     if (typeof result === "number" && isFinite(result)) {
       current = result.toString();
@@ -123,14 +116,12 @@ function calculate() {
   updateDisplay();
 }
 
-// Scientific mode toggle
 function toggleMode() {
   scientificMode = !scientificMode;
   document.getElementById('scientificButtons').style.display = scientificMode ? 'grid' : 'none';
   document.getElementById('modeBtn').textContent = scientificMode ? "Standard" : "Scientific";
 }
 
-// Keyboard support
 document.addEventListener('keydown', (e) => {
   if (e.key >= '0' && e.key <= '9') input(e.key);
   if (e.key === '.') input('.');
